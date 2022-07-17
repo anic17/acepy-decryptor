@@ -47,9 +47,10 @@ char *remove_extension(char *myStr) // https://stackoverflow.com/a/2736841
 
 char *decrypt_string(char *s, char *key, size_t len)
 {
+	size_t keylen = strlen(key);
 	for (size_t i = 0; i < len; i++)
 	{
-		s[i] = s[i] ^ key[i % strlen(key)]; // Decrypt using XOR
+		s[i] ^= key[i % keylen]; // Decrypt using XOR
 	}
 }
 
